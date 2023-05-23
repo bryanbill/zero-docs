@@ -1,0 +1,21 @@
+{
+  "index": "Introduction",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://twitter.com/SuperDispose",
+    "newWindow": true
+  },
+  "api": {
+    "title": "API ↗",
+    "type": "page",
+    "href": "https://bryanbill.github.com/zero-api",
+    "newWindow": true
+  },
+  "overview": "Overview",
+  "cli": "CLI"
+}

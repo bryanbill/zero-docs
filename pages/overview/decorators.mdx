@@ -1,0 +1,12 @@
+# Decorators
+
+Zero has decorators that can be used to modify the behavior of functions.
+
+The following decorators are available:
+
+| Decorator | Description |
+| --- | --- |
+| `@Body` | Used for validating request body, takes a List of `Field` as arguement |
+| `@Param` | Used to add params to the request, takes a List of String where the string value is the key of the request.params object |
+| `@Path` | This decorator is compulsory for all routable methods, it takes a required String value as the path and an optional formal parameter `method` to specify the request method. Defaults to GET method |
+

@@ -1,0 +1,76 @@
+# Controllers
+
+Controllers are the glue between your app logic and the routing system.
+They are responsible for handling requests and returning responses.
+In this section, we will learn how to create a controller and how to use it.
+
+## Creating a Controller
+
+To create a controller, you need to create a class that extends the `Controller` class.
+
+```dart
+import 'package:zero/zero.dart';
+
+class BooksController extends Controller {
+
+    BooksController(this.request): super(request);
+
+    final Request request;
+
+    @Path("/")
+    Response getBooks()  {
+        return Response.ok({
+            "books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald"
+                },
+                {
+                    "title": "The Da Vinci Code",
+                    "author": "Dan Brown"
+                }
+            ]
+
+        });
+    }
+
+    @Path("/:id")
+    @Param(["id"])
+    Future<Response> getBook() async {
+        final id = request.params["id"];
+        //... other logic
+        return Response.ok({
+            "book": {
+                "title": "The Great Gatsby",
+                "author": "F. Scott Fitzgerald"
+            }
+        });
+    }
+
+    @Path("/", method: "POST")
+    @Body([
+        Field("title", isRequired: true),
+    ])
+    Future<Response> createBook() async {
+        final body = request.body;
+
+        //... other logic
+        return Response.created({
+            "book": {
+                "title": "The Great Gatsby",
+                "author": "F. Scott Fitzgerald"
+            }
+        });
+    }
+}
+```
+
+The `Controller` class provides a `request` property that contains the current request.
+Each controller method must return a `Response` object., whether a Future or not.
+
+Each controller method can be annotated with the `@Path` annotation to specify the path of the route.
+The path can contain parameters, which are defined using the `@Param` annotation.
+
+The `@Body` annotation is used to specify the body of the request.
+
+Learn more about decorators in the [Decorators](/overview/decorators) section.

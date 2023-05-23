@@ -1,0 +1,36 @@
+# Routing 
+
+This section describes how to configure routing for the application.
+
+Zero has `Route` class that is responsible for routing.
+It is a simple class that has only path and controller properties.
+
+```dart
+class Route {
+  final String path;
+  final Controller controller;
+
+  Route(this.path, this.controller);
+}
+```
+
+The `path` property is the path that the route will be listening to and is the base path for the controller.
+The `controller` property is the controller that will be used to handle the request. Note: Each 
+controller can have multiple routes denote by the `@Path` decorator.
+
+
+## Routing Configuration
+
+Let's see how to add a route to the application.
+
+```dart
+import 'package:zero/zero.dart';
+
+void main() {
+  final server = Server(
+    routes: [
+        Route("/books", controller:(req) => BooksController(req)),
+    ]
+  );
+}
+```

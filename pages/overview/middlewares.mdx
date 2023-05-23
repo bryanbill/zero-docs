@@ -1,0 +1,41 @@
+# Middlewares
+
+Middlewares are executed before the request is passed to the method handler. They can be used to perform authentication, logging, etc.
+
+## Creating a middleware
+
+A middleware class implements the `Middleware` class and must implement the `handle` method.
+The `handle` method receives the request object and transforms it into a response or a new request object.
+
+Sending a response from a middleware will stop the execution of the request and return the response to the client while sending
+a new request object will continue the execution of the request with the modified request object.
+
+Note: To use a middleware as an Annotation, the middleware must have a const constructor.
+
+```dart
+class Auth implements Middleware{
+   
+   @override
+   FutureOr<RequestOrResponse> handle(Request request) async {
+      if(request.headers['Authorization'] == null){
+         return RequestOrResponse(response: Response.unauthorized());
+      }
+      return RequestOrResponse(request: request);
+   }
+}
+```
+
+## Using a middleware
+
+To use a middleware, add it to the `@Middleware` annotation of the method handler.
+
+```dart
+class MyController extends Controller{
+   
+   @Path('/hello')
+   @Auth()
+   Future<Response> get() async {
+      return Response.ok('Hello World');
+   }
+}
+```

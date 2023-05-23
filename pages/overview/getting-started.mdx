@@ -1,0 +1,76 @@
+# Getting started
+
+In the following set of articles,
+we'll create a simple application will help us to understand the basics of the Zero framework.
+
+## Prerequisites
+
+Before we start, make sure you have the following installed:
+
+- [Dart SDK - v3](https://dart.dev/get-dart)
+- [Zero CLI](https://zero.vercel/#installation)
+
+## Setup
+
+First, we need to create a new project using the Zero CLI:
+
+```bash
+zero new my_app
+```
+
+The project structure should look like this:
+
+```bash
+my_app
+├── lib
+│   ├── controllers
+│   │   └── books_controller.dart
+│   ├── main.dart
+│   └── models
+│       └── book.dart
+├── pubspec.lock
+└── pubspec.yaml
+```
+
+Here is a brief description of the files and folders:
+
+| File/Folder       | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `lib`             | Contains the source code of the application |
+| `lib/controllers` | Contains the controllers of the application |
+| `lib/models`      | Contains the models of the application      |
+| `lib/main.dart`   | The entry point of the application          |
+| `pubspec.yaml`    | The configuration file of the application   |
+
+The `main.dart` file is the entry point of the application and contains the following code:
+
+```dart
+import 'package:zero/zero.dart';
+
+void main() {
+  final server = Server(
+    routes: [
+        Route("/books", controller:(req) => BooksController(req)),
+    ]
+  );
+}
+```
+
+The `Server` class is the main class of the framework and is responsible for handling the requests and responses.
+It takes a list of routes as a parameter.
+Each route contains a path and a controller. The path is the URL of the route and the controller is a function that takes a `Request` object as a parameter and returns a `Response` object.
+
+## Running the application
+
+To run the application, use the following command:
+
+```bash
+zero run
+```
+
+Zero supports hot reload, so you don't need to restart the application every time you make a change.
+To disable hot reload, use the `--no-watch` flag:
+
+```bash
+zero run --no-watch
+```

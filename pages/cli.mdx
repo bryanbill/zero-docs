@@ -1,0 +1,35 @@
+# Zero CLI 
+
+Zero CLI is a command line interface for creating and running Zero applications.
+
+## Installation
+
+```bash
+dart pub global activate --source git https://github.com/bryanbill/zero
+# Or using -sgit
+dart pub global activate -sgit https://github.com/bryanbill/zero
+```
+
+NOTE: You may need to add .pub-cache/bin to your PATH to run the `zero` command.
+
+## Usage
+
+```bash
+# Create a new Zero application
+zero new my_app
+
+# Run the application
+cd my_app
+zero run
+```
+
+## Commands
+
+{/* Table */}
+| Command | Description |
+| --- | --- |
+| `new` | Creates a new Zero application |
+| `run` | Runs the application: Hot reload is enabled by default, to run the app without hot reload add the `--no-watch` flag |
+
+
+
