@@ -9,9 +9,9 @@ const config: DocsThemeConfig = {
           name="description"
           content="Zero is a fast, lightweight and scalable Dart backend framework"
         />
-        <meta name="og:title" content="Zero" />
+        <meta property="og:title" content="Zero" />
         <meta
-          name="og:description"
+          property="og:description"
           content="Zero is a fast, lightweight and scalable Dart backend framework"
         />
     </>
