@@ -14,7 +14,7 @@ Note: To use a middleware as an Annotation, the middleware must have a const con
 
 ```dart
 class Auth implements Middleware{
-   
+   const Auth();
    @override
    FutureOr<RequestOrResponse> handle(Request request) async {
       if(request.headers['Authorization'] == null){
