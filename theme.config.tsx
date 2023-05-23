@@ -4,7 +4,6 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   head: (
     <>
-      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
@@ -15,7 +14,6 @@ const config: DocsThemeConfig = {
           name="og:description"
           content="Zero is a fast, lightweight and scalable Dart backend framework"
         />
-      </head>
     </>
   ),
   feedback: {
