@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/bryanbill/zero-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "Brian Omondi <brian@namani.co>",
   "license": "MIT",
   "bugs": {
     "url": "https://ggithub.com/bryanbill/zero-docs/issues"
@@ -19,8 +19,8 @@
   "homepage": "https://zero.vercel.app",
   "dependencies": {
     "next": "^13.0.6",
-    "nextra": "latest",
-    "nextra-theme-docs": "latest",
+    "nextra": "2.5.2",
+    "nextra-theme-docs": "2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

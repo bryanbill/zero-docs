@@ -1,21 +1,27 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
   head: (
     <>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Zero is a fast, lightweight and scalable Dart backend framework"
-        />
-        <meta property="og:title" content="Zero" />
-        <meta
-          property="og:description"
-          content="Zero is a fast, lightweight and scalable Dart backend framework"
-        />
+      <meta property="og:url" content="https://zero.vercel.app" />
+      <meta property="og:title" content="Zero" />
+      <meta
+        property="og:description"
+        content="Zero -  A simple, fast, lightweight and scalable backend framework"
+      />
     </>
   ),
+  useNextSeoProps() {
+    const { asPath } = useRouter();
+    if (asPath !== "/") {
+      return {
+        titleTemplate: "%s – Zero",
+        
+      };
+    }
+  },
   feedback: {
     content: "Is this page helpful?",
   },
